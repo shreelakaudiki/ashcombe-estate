@@ -13,23 +13,21 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
 
     background:
         radial-gradient(
-            circle at 50% 20%,
-            #29241d 0%,
-            #1d1a16 55%,
-            #141311 100%
+            circle at 50% 15%,
+            #29251f 0%,
+            #201d18 48%,
+            #151311 100%
         );
 
-    color: #d9d0bd;
+    color: #d8cfbd;
 
     font-family: Georgia, "Times New Roman", serif;
 
     line-height: 1.7;
-
-    min-height: 100vh;
 }
 
 
@@ -38,34 +36,25 @@ body {
    ========================================================= */
 
 .site-header {
-    border-bottom: 1px solid #625541;
+    background: #191714;
 
-    background:
-        linear-gradient(
-            to bottom,
-            #191714,
-            #211e19
-        );
+    border-bottom: 1px solid #5b4f3d;
 
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.35);
+        0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
-
-/* top archival strip */
 
 .header-strip {
     display: flex;
 
     justify-content: space-between;
 
-    align-items: center;
-
     padding: 10px 7%;
 
-    border-bottom: 1px solid #40392f;
+    border-bottom: 1px solid #39332a;
 
-    color: #94866e;
+    color: #8f8169;
 
     font-family: "Courier New", monospace;
 
@@ -77,20 +66,18 @@ body {
 }
 
 
-/* main header */
-
 .header-main {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 32px 7%;
+
     display: flex;
 
     align-items: center;
 
     gap: 22px;
-
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    padding: 32px 7%;
 }
 
 
@@ -107,8 +94,6 @@ body {
 
     color: #b8a582;
 
-    font-family: Georgia, serif;
-
     font-size: 19px;
 
     letter-spacing: 2px;
@@ -124,7 +109,7 @@ body {
 
     inset: 5px;
 
-    border: 1px solid #4f4639;
+    border: 1px solid #4d4436;
 }
 
 
@@ -133,13 +118,9 @@ body {
 
     color: #e2d8c5;
 
-    font-family: Georgia, "Times New Roman", serif;
-
     font-size: 30px;
 
     font-weight: normal;
-
-    letter-spacing: 0.5px;
 }
 
 
@@ -169,12 +150,12 @@ body {
 
     border-top: 1px solid #332e27;
 
-    background: #181613;
+    background: #171512;
 }
 
 
 .main-nav a {
-    color: #9c907b;
+    color: #948875;
 
     text-decoration: none;
 
@@ -184,50 +165,47 @@ body {
 
     letter-spacing: 1.8px;
 
+    text-transform: uppercase;
+
     transition: color 0.25s ease;
 }
 
 
 .main-nav a:hover {
-    color: #d2b986;
+    color: #d1b47d;
 }
 
 
 /* =========================================================
-   MAIN CONTENT
+   MAIN
    ========================================================= */
 
 main {
-    max-width: 1200px;
+    max-width: 1150px;
 
-    margin: 0 auto;
+    margin: auto;
 
-    padding: 70px 7% 100px;
-}
-
-
-.record-page {
-    width: 100%;
+    padding: 75px 7% 100px;
 }
 
 
 /* =========================================================
-   INTRO / ARCHIVE LANDING
+   INTRO
    ========================================================= */
 
-.archive-intro {
-    max-width: 780px;
+.intro {
+    max-width: 760px;
 
-    margin: 0 auto 70px;
+    margin: 0 auto 75px;
 
     text-align: center;
 }
 
 
-.archive-intro .eyebrow {
+.section-label {
     margin-bottom: 12px;
 
-    color: #9a896c;
+    color: #927d5d;
 
     font-family: "Courier New", monospace;
 
@@ -239,23 +217,25 @@ main {
 }
 
 
-.archive-intro h2 {
+.intro h2 {
     margin: 0 0 20px;
 
     color: #e2d8c5;
 
-    font-size: 34px;
+    font-size: 36px;
 
     font-weight: normal;
+
+    letter-spacing: 1px;
 }
 
 
-.archive-intro p {
-    margin: 0 auto;
+.intro p {
+    max-width: 700px;
 
-    max-width: 680px;
+    margin: 0 auto 14px;
 
-    color: #aaa08f;
+    color: #aaa08e;
 
     font-size: 15px;
 
@@ -264,32 +244,36 @@ main {
 
 
 /* =========================================================
-   SECTION HEADINGS
+   ARCHIVE SECTION
    ========================================================= */
 
+.archive-section {
+    margin-bottom: 70px;
+}
+
+
 .section-heading {
-    margin-bottom: 28px;
+    display: flex;
 
-    padding-bottom: 12px;
+    justify-content: space-between;
 
-    border-bottom: 1px solid #554b3d;
+    align-items: center;
 
-    color: #c8b99e;
+    padding-bottom: 13px;
+
+    margin-bottom: 0;
+
+    border-bottom: 1px solid #5a4e3d;
+
+    color: #aa997c;
 
     font-family: "Courier New", monospace;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 2px;
 
     text-transform: uppercase;
-}
-
-
-.section-heading::before {
-    content: "§ ";
-
-    color: #8f7955;
 }
 
 
@@ -301,46 +285,44 @@ main {
     display: flex;
 
     flex-direction: column;
-
-    gap: 0;
-
-    margin-bottom: 70px;
 }
 
 
-.record-entry {
+.record {
     display: grid;
 
-    grid-template-columns: 100px 1fr auto;
-
-    gap: 25px;
+    grid-template-columns: 90px 1fr 35px;
 
     align-items: center;
 
-    padding: 25px 20px;
+    gap: 25px;
+
+    padding: 24px 15px;
 
     border-bottom: 1px solid #39342c;
 
+    text-decoration: none;
+
     transition:
         background 0.25s ease,
-        padding 0.25s ease;
+        padding-left 0.25s ease;
 }
 
 
-.record-entry:first-child {
+.record:first-child {
     border-top: 1px solid #39342c;
 }
 
 
-.record-entry:hover {
-    background: rgba(170, 140, 90, 0.055);
+.record:hover {
+    background: rgba(160, 130, 82, 0.06);
 
-    padding-left: 27px;
+    padding-left: 23px;
 }
 
 
 .record-year {
-    color: #87785f;
+    color: #89785d;
 
     font-family: "Courier New", monospace;
 
@@ -350,10 +332,10 @@ main {
 }
 
 
-.record-info h3 {
+.record-content h3 {
     margin: 0 0 4px;
 
-    color: #d7cbb6;
+    color: #d5cab7;
 
     font-size: 18px;
 
@@ -361,32 +343,28 @@ main {
 }
 
 
-.record-info p {
+.record-content p {
     margin: 0;
 
-    color: #817868;
+    color: #817766;
 
     font-size: 12px;
 }
 
 
-.record-link {
-    color: #a08c6a;
+.record-arrow {
+    color: #967f5d;
 
-    text-decoration: none;
+    font-size: 18px;
 
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 1px;
-
-    white-space: nowrap;
+    transition: transform 0.2s ease;
 }
 
 
-.record-link:hover {
-    color: #d1b37c;
+.record:hover .record-arrow {
+    transform: translateX(4px);
+
+    color: #c4a570;
 }
 
 
@@ -397,32 +375,63 @@ main {
 .archive-note {
     max-width: 850px;
 
-    margin: 50px auto;
+    margin: 55px auto 0;
 
     padding: 25px 30px;
 
-    border-left: 2px solid #756143;
+    background: rgba(125, 98, 58, 0.05);
 
-    background: rgba(125, 98, 58, 0.06);
+    border-left: 2px solid #776347;
 
-    color: #8f8573;
+    border-top: 1px solid rgba(120, 95, 60, 0.18);
+
+    border-bottom: 1px solid rgba(120, 95, 60, 0.18);
+}
+
+
+.note-label {
+    margin-bottom: 10px;
+
+    color: #907a59;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.archive-note p {
+    margin: 0;
+
+    color: #958a78;
 
     font-size: 13px;
 
     font-style: italic;
+
+    line-height: 1.8;
 }
 
 
 /* =========================================================
-   BACK LINK
+   RECORD PAGES
    ========================================================= */
+
+.record-page {
+    width: 100%;
+}
+
 
 .back-link {
     display: inline-block;
 
     margin-bottom: 45px;
 
-    color: #93836b;
+    color: #918069;
 
     text-decoration: none;
 
@@ -435,29 +444,25 @@ main {
 
 
 .back-link:hover {
-    color: #c9aa76;
+    color: #c8a96f;
 }
 
-
-/* =========================================================
-   RECORD PAGE HEADER
-   ========================================================= */
 
 .record-header {
     max-width: 900px;
 
-    margin: 0 auto 50px;
+    margin: 0 auto 45px;
 
-    padding-bottom: 30px;
+    padding-bottom: 28px;
 
-    border-bottom: 1px solid #5a4e3d;
+    border-bottom: 1px solid #594d3d;
 }
 
 
 .record-reference {
     margin-bottom: 12px;
 
-    color: #907b5c;
+    color: #8f795a;
 
     font-family: "Courier New", monospace;
 
@@ -472,7 +477,7 @@ main {
 .record-title {
     margin: 0;
 
-    color: #e0d5c0;
+    color: #e0d5c1;
 
     font-size: 34px;
 
@@ -481,7 +486,7 @@ main {
 
 
 .record-subtitle {
-    margin: 8px 0 0;
+    margin: 7px 0 0;
 
     color: #8f8472;
 
@@ -492,7 +497,7 @@ main {
 
 
 /* =========================================================
-   RECORD METADATA
+   METADATA
    ========================================================= */
 
 .record-meta {
@@ -558,7 +563,7 @@ main {
 
 
 .record-section h3 {
-    margin: 0 0 15px;
+    margin: 0 0 14px;
 
     color: #aa9878;
 
@@ -607,7 +612,7 @@ main {
 
 
 /* =========================================================
-   ARCHIVAL INSTRUCTION
+   ARCHIVAL NOTE
    ========================================================= */
 
 .archival-note {
@@ -617,8 +622,7 @@ main {
 
     padding: 25px 30px;
 
-    background:
-        rgba(117, 91, 55, 0.065);
+    background: rgba(117, 91, 55, 0.06);
 
     border-left: 2px solid #89724f;
 
@@ -630,7 +634,8 @@ main {
 }
 
 
-.archival-note strong {
+.archival-note strong,
+.archival-label {
     display: block;
 
     margin-bottom: 10px;
@@ -650,7 +655,7 @@ main {
 .archival-note p {
     margin: 0;
 
-    font-family: Georgia, serif;
+    color: #b8ad99;
 
     font-size: 15px;
 
@@ -673,6 +678,10 @@ main {
 
     border-top: 1px solid #40392f;
 
+    display: flex;
+
+    justify-content: space-between;
+
     color: #706756;
 
     font-family: "Courier New", monospace;
@@ -682,15 +691,11 @@ main {
     letter-spacing: 1.5px;
 
     text-transform: uppercase;
-
-    display: flex;
-
-    justify-content: space-between;
 }
 
 
 /* =========================================================
-   DIARY VIEWER
+   DIARY
    ========================================================= */
 
 .diary-viewer {
@@ -699,10 +704,6 @@ main {
     margin: 55px auto 80px;
 }
 
-
-/* =========================================================
-   DIARY PAGE
-   ========================================================= */
 
 .diary-page {
     position: relative;
@@ -767,12 +768,11 @@ main {
 }
 
 
-/* diary page number */
-
 .diary-page-number {
     position: absolute;
 
     top: 34px;
+
     right: 48px;
 
     z-index: 2;
@@ -787,8 +787,6 @@ main {
 }
 
 
-/* diary date */
-
 .diary-date {
     position: relative;
 
@@ -800,15 +798,11 @@ main {
 
     color: #75624a;
 
-    font-family: Georgia, serif;
-
     font-size: 14px;
 
     font-style: italic;
 }
 
-
-/* diary heading */
 
 .diary-heading {
     position: relative;
@@ -820,8 +814,6 @@ main {
     text-align: center;
 
     color: #33291e;
-
-    font-family: Georgia, serif;
 
     font-size: 28px;
 
@@ -842,8 +834,6 @@ main {
 }
 
 
-/* diary text */
-
 .diary-text {
     position: relative;
 
@@ -855,8 +845,6 @@ main {
 
     color: #403426;
 
-    font-family: Georgia, serif;
-
     font-size: 17px;
 
     line-height: 2;
@@ -867,8 +855,6 @@ main {
     margin: 0 0 23px;
 }
 
-
-/* diary signature */
 
 .diary-signature {
     position: relative;
@@ -891,7 +877,7 @@ main {
 
 
 /* =========================================================
-   DIARY SUIT HIERARCHY
+   SUIT HIERARCHY
    ========================================================= */
 
 .suit-order {
@@ -911,8 +897,6 @@ main {
 
     color: #403426;
 
-    font-family: Georgia, serif;
-
     font-size: 17px;
 }
 
@@ -923,61 +907,6 @@ main {
     justify-content: space-between;
 
     padding: 7px 12px;
-}
-
-
-/* =========================================================
-   DIARY ARCHIVAL INSTRUCTION
-   ========================================================= */
-
-.diary-page .archival-instruction {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 650px;
-
-    margin: 45px auto 35px;
-
-    padding: 25px 30px;
-
-    background: rgba(120, 91, 52, 0.055);
-
-    border-left: 2px solid #806b4d;
-
-    border-top: 1px solid rgba(128, 107, 77, 0.25);
-
-    border-bottom: 1px solid rgba(128, 107, 77, 0.25);
-}
-
-
-.diary-page .archival-label {
-    margin-bottom: 14px;
-
-    color: #75624a;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-}
-
-
-.diary-page .archival-instruction p {
-    margin: 0;
-
-    color: #3f3326;
-
-    font-family: Georgia, serif;
-
-    font-size: 17px;
-
-    font-style: italic;
-
-    line-height: 1.9;
 }
 
 
@@ -993,8 +922,6 @@ main {
     align-items: center;
 
     margin-top: 25px;
-
-    padding: 0 5px;
 }
 
 
@@ -1016,8 +943,6 @@ main {
     text-transform: uppercase;
 
     cursor: pointer;
-
-    transition: 0.25s ease;
 }
 
 
@@ -1051,10 +976,6 @@ main {
    ========================================================= */
 
 footer {
-    display: flex;
-
-    justify-content: space-between;
-
     max-width: 1200px;
 
     margin: 0 auto;
@@ -1062,6 +983,10 @@ footer {
     padding: 25px 7% 35px;
 
     border-top: 1px solid #39342d;
+
+    display: flex;
+
+    justify-content: space-between;
 
     color: #716858;
 
@@ -1076,18 +1001,20 @@ footer {
 
 
 /* =========================================================
-   ANIMATION
+   DIARY PAGE ANIMATION
    ========================================================= */
 
 @keyframes diaryAppear {
 
     from {
         opacity: 0;
+
         transform: translateX(12px);
     }
 
     to {
         opacity: 1;
+
         transform: translateX(0);
     }
 
@@ -1116,6 +1043,7 @@ footer {
 
     .archive-mark {
         width: 48px;
+
         height: 48px;
 
         font-size: 15px;
@@ -1151,22 +1079,37 @@ footer {
     }
 
 
-    .archive-intro h2 {
+    .intro h2 {
         font-size: 28px;
     }
 
 
-    .record-entry {
-        grid-template-columns: 1fr;
-
-        gap: 8px;
-
-        padding: 22px 12px;
+    .section-heading {
+        gap: 15px;
     }
 
 
-    .record-entry:hover {
-        padding-left: 16px;
+    .record {
+        grid-template-columns: 65px 1fr 20px;
+
+        gap: 12px;
+
+        padding: 20px 8px;
+    }
+
+
+    .record:hover {
+        padding-left: 13px;
+    }
+
+
+    .record-content h3 {
+        font-size: 16px;
+    }
+
+
+    .record-content p {
+        font-size: 11px;
     }
 
 
@@ -1200,11 +1143,6 @@ footer {
 
 
     /* diary */
-
-    .diary-viewer {
-        margin-top: 30px;
-    }
-
 
     .diary-page {
         min-height: 600px;
