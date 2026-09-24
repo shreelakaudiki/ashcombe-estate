@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Diaries · Ashcombe Estate</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .diary-viewer {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .diary-page {
+            min-height: 620px;
+
+            padding: 65px 75px;
+
+            background:
+                linear-gradient(
+                    rgba(246, 239, 220, 0.96),
+                    rgba(232, 221, 195, 0.96)
+                );
+
+            border: 1px solid #b8aa8d;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.35),
+                inset 0 0 35px rgba(90, 70, 40, 0.08);
+
+            color: #39342c;
+
+            position: relative;
+
+            transition: opacity 0.25s ease;
+        }
+
+
+        .diary-page::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 15px;
+
+            border: 1px solid rgba(100, 85, 60, 0.22);
+
+            pointer-events: none;
+        }
+
+
+        .diary-page-number {
+            position: absolute;
+
+            top: 28px;
+            right: 38px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #756b5c;
+        }
+
+
+        .diary-date {
+            margin-bottom: 38px;
+
+            font-family: Georgia, serif;
+
+            font-size: 14px;
+
+            font-style: italic;
+
+            color: #655b4c;
+
+            text-align: center;
+        }
+
+
+        .diary-heading {
+            margin-bottom: 30px;
+
+            font-family: Georgia, serif;
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+            text-align: center;
+
+            color: #302c25;
+        }
+
+
+        .diary-text {
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            line-height: 2;
+
+            color: #403a30;
+        }
+
+
+        .diary-text p {
+            margin: 0 0 22px;
+        }
+
+
+        .diary-signature {
+            margin-top: 45px;
+
+            text-align: right;
+
+            font-family: Georgia, serif;
+
+            font-size: 18px;
+
+            font-style: italic;
+
+            color: #4b4336;
+        }
+
+
+        .suit-order {
+            max-width: 430px;
+
+            margin: 35px auto;
+
+            padding: 20px 30px;
+
+            border-top: 1px solid #9e927b;
+            border-bottom: 1px solid #9e927b;
+
+            text-align: center;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            line-height: 2;
+
+            color: #40392e;
+        }
+
+
+        .suit-order div {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 2px 20px;
+        }
+
+
+        .archival-instruction {
+            max-width: 650px;
+
+            margin: 45px auto 0;
+
+            padding: 25px 30px;
+
+            border-left: 2px solid #756b5c;
+
+            background: rgba(110, 90, 60, 0.07);
+        }
+
+
+        .archival-label {
+            margin-bottom: 12px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #756b5c;
+        }
+
+
+        .archival-instruction p {
+            margin: 0;
+
+            font-family: Georgia, serif;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            font-style: italic;
+
+            color: #403a30;
+        }
+
+
+        .diary-navigation {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 25px;
+
+        }
+
+
+        .diary-button {
+
+            padding: 12px 20px;
+
+            background: transparent;
+
+            border: 1px solid #625b50;
+
+            color: #d7d0c2;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .diary-button:hover:not(:disabled) {
+            background: #272727;
+        }
+
+
+        .diary-button:disabled {
+            opacity: 0.3;
+
+            cursor: default;
+        }
+
+
+        .page-counter {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #8d887f;
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .diary-page {
+
+                padding: 55px 35px;
+
+                min-height: 600px;
+
+            }
+
+            .diary-text {
+
+                font-size: 15px;
+
+                line-height: 1.9;
+
+            }
+
+            .diary-navigation {
+
+                gap: 10px;
+
+            }
+
+            .diary-button {
+
+                padding: 10px 12px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<header class="site-header">
+
+    <div class="header-strip">
+
+        <span>ASHCOMBE ESTATE</span>
+        <span>PRIVATE PAPERS</span>
+        <span>1900–1927</span>
+
+    </div>
+
+
+    <div class="header-main">
+
+        <div class="archive-mark">
+            AE
+        </div>
+
+        <div class="title-block">
+
+            <h1>
+                Ashcombe Estate Archive
+            </h1>
+
+            <p>
+                Estate Records &amp; Private Family Papers
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav class="main-nav">
+
+        <a href="index.html">ARCHIVE</a>
+        <a href="#">ESTATE RECORDS</a>
+        <a href="#">PRIVATE PAPERS</a>
+        <a href="#">ABOUT</a>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+    <div class="record-page">
+
+
+        <a href="index.html" class="back-link">
+            ← RETURN TO ESTATE ARCHIVE
+        </a>
+
+
+        <section class="record-header">
+
+            <div class="record-reference">
+                PRIVATE PAPERS · EA-DIARY-07
+            </div>
+
+            <h2 class="record-title">
+                Personal Diaries
+            </h2>
+
+            <p class="record-subtitle">
+                Selected papers of Eleanor Ashcombe
+            </p>
+
+        </section>
+
+
+
+        <div class="diary-viewer">
+
+
+            <!-- PAGE 1 -->
+
+            <article class="diary-page" id="page1">
+
+                <div class="diary-page-number">
+                    PAGE 01 / 08
+                </div>
+
+                <div class="diary-date">
+                    14 October 1911
+                </div>
+
+                <h3 class="diary-heading">
+                    The Beginning
+                </h3>
+
+                <div class="diary-text">
+
+                    <p>
+                        He says the Dahlia must disappear.
+                    </p>
+
+                    <p>
+                        I asked why a thing so precious should be
+                        hidden when it could make us both
+                        exceedingly wealthy.
+                    </p>
+
+                    <p>
+                        He only smiled.
+                    </p>
+
+                    <p>
+                        There are five around the one. I have
+                        marked them as he instructed.
+                    </p>
+
+                    <p>
+                        If anyone should find the Dahlia again,
+                        they must first understand the six marks.
+                    </p>
+
+                    <p>
+                        I fear I have agreed to something I do not
+                        entirely understand.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- PAGE 2 -->
+
+            <article class="diary-page" id="page2" style="display:none;">
+
+                <div class="diary-page-number">
+                    PAGE 02 / 08
+                </div>
+
+                <div class="diary-date">
+                    16 October 1911
+                </div>
+
+                <h3 class="diary-heading">
+                    After the Auction
+                </h3>
+
+                <div class="diary-text">
+
+                    <p>
+                        The house has been unusually quiet since
+                        the auction.
+                    </p>
+
+                    <p>
+                        Arthur has sent no further explanation.
+                        I am told the catalogue will show the lot
+                        as withdrawn.
+                    </p>
+
+                    <p>
+                        It is strange to see such a valuable object
+                        disappear from a catalogue as though it
+                        had never been offered at all.
+                    </p>
+
+                    <p>
+                        He says that records are easier to alter
+                        than memories.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- PAGE 3 -->
+
+            <article class="diary-page" id="page3" style="display:none;">
+
+                <div class="diary-page-number">
+                    PAGE 03 / 08
+                </div>
+
+                <div class="diary-date">
+                    18 October 1911
+                </div>
+
+                <h3 class="diary-heading">
+                    The Cards
+                </h3>
+
+                <div class="diary-text">
+
+                    <p>
+                        He came to the house again tonight.
+                    </p>
+
+                    <p>
+                        Before leaving, he placed the cards upon
+                        the billiards table.
+                    </p>
+
+                    <p>
+                        Five face upward.
+                    </p>
+
+                    <p>
+                        One remains beneath the cloth.
+                    </p>
+
+                    <p>
+                        He told me that the order mattered more
+                        than the cards themselves.
+                    </p>
+
+                    <p>
+                        I asked him what name I should record.
+                        He laughed.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- PAGE 4 -->
+
+            <article class="diary-page" id="page4" style="display:none;">
+
+                <div class="diary-page-number">
+                    PAGE 04 / 08
+                </div>
+
+                <div class="diary-date">
+                    Undated · Private Family Note
+                </div>
+
+                <h3 class="diary-heading">
+                    On the Order of the Four Suits
+                </h3>
+
+                <div class="diary-text">
+
+                    <p>
+                        Father always insisted that the suits be
+                        remembered in their proper order when the
+                        family played.
+                    </p>
+
+                </div>
+
+
+                <div class="suit-order">
+
+                    <div>
+                        <span>♦ Diamonds</span>
+                        <span>First</span>
+                    </div>
+
+                    <div>
+                        <span>♣ Clubs</span>
+                        <span>Second</span>
+                    </div>
+
+                    <div>
+                        <span>♥ Hearts</span>
+                        <span>Third</span>
+                    </div>
+
+                    <div>
+                        <span>♠ Spades</span>
+                        <span>Fourth</span>
+                    </div>
+
+                </div>
+
+
+                <div class="diary-text">
+
+                    <p>
+                        He said the order mattered more than the
+                        cards themselves.
+                    </p>
+
+                    <p>
+                        I never understood why.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- PAGE 5 -->
+
+            <article class="diary-page" id="page5" style="display:none;">
+
+                <div class="diary-page-number">
+                    PAGE 05 / 08
+                </div>
+
+                <div class="diary-date">
+                    20 October 1911
+                </div>
+
+                <h3 class="diary-heading">
+                    The Five Hands
+                </h3>
+
+                <div class="diary-text">
+
+                    <p>
+                        He spoke again of the jewel returning
+                        through five hands.
+                    </p>
+
+                    <p>
+                        Five owners, perhaps. Five places. Five
+                        records.
+                    </p>
+
+                    <p>
+                        I cannot tell whether he means people or
+                        merely the passage of time.
+                    </p>
+
+                    <p>
+                        Yet he seemed certain that the five would
+                        be enough to make the story believable.
+                    </p>
+
+                    <p>
+                        I wonder what becomes of the sixth.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- PAGE 6 -->
+
+            <article class="diary-page" id="page6" style="display:none;">
+
+                <div class="diary-page-number">
+                    PAGE 06 / 08
+                </div>
+
+                <div class="diary-date">
+                    21 October 1911
+                </div>
+
+                <h3 class="diary-heading">
+                    The Truth
+                </h3>
+
+                <div class="diary-text">
+
+                    <p>
+                        I understand now why he insisted upon the
+                        story of a theft.
+                    </p>
+
+                    <p>
+                        The jewel was never stolen.
+                    </p>
+
+                    <p>
+                        Arthur was instructed to mark Lot 45 as
+                        withdrawn.
+                    </p>
+
+                    <p>
+                        The Dahlia was removed before the auction
+                        ended.
+                    </p>
+
+                    <p>
+                        It was to disappear from the records, not
+                        from the world.
+                    </p>
+
+                    <p>
+                        He said that one day the jewel would return
+                        through five hands.
+                    </p>
+
+                    <p>
+                        Five appearances. Five cards. And then
+                        the sixth.
+                    </p>
+
+                    <p>
+                        He called it a game.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- PAGE 7 -->
+
+            <article class="diary-page" id="page7" style="display:none;">
+
+                <div class="diary-page-number">
+                    PAGE 07 / 08
+                </div>
+
+                <div class="diary-date">
+                    Undated · Private Note
+                </div>
+
+                <h3 class="diary-heading">
+                    The Sixth Hand
+                </h3>
+
+                <div class="diary-text">
+
+                    <p>
+                        I remember the billiards room most clearly.
+                    </p>
+
+                    <p>
+                        It was there that the cards were always
+                        laid out after supper.
+                    </p>
+
+                    <p>
+                        Five would be dealt.
+                    </p>
+
+                    <p>
+                        The sixth was always kept aside.
+                    </p>
+
+                    <p>
+                        If the game is ever completed, the final
+                        card must return to the room where it began.
+                    </p>
+
+                    <p>
+                        Perhaps that is what he meant when he said
+                        the sixth hand would finish the game.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- PAGE 8 -->
+
+            <article class="diary-page" id="page8" style="display:none;">
+
+                <div class="diary-page-number">
+                    PAGE 08 / 08
+                </div>
+
+                <div class="diary-date">
+                    Archival Note
+                </div>
+
+                <h3 class="diary-heading">
+                    Final Instruction
+                </h3>
+
+
+                <div class="archival-instruction">
+
+                    <div class="archival-label">
+                        Archival Instruction
+                    </div>
+
+                    <p>
+                        Eleanor's notes describe the room, the sixth
+                        card, and his hand.
+                    </p>
+
+                </div>
+
+
+                <div class="diary-text">
+
+                    <p>
+                        The remaining note contains no further
+                        explanation.
+                    </p>
+
+                    <p>
+                        The handwriting ends at the bottom of the
+                        page.
+                    </p>
+
+                </div>
+
+                <div class="diary-signature">
+                    — E.A.
+                </div>
+
+            </article>
+
+
+
+            <!-- NAVIGATION -->
+
+            <div class="diary-navigation">
+
+                <button
+                    class="diary-button"
+                    id="previousButton"
+                    onclick="changePage(-1)"
+                    disabled>
+
+                    ← Previous Page
+
+                </button>
+
+
+                <div class="page-counter" id="pageCounter">
+                    PAGE 01 / 08
+                </div>
+
+
+                <button
+                    class="diary-button"
+                    id="nextButton"
+                    onclick="changePage(1)">
+
+                    Next Page →
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<footer>
+
+    <div>
+        ASHCOMBE ESTATE ARCHIVE
+    </div>
+
+    <div>
+        PRIVATE PAPERS · ESTATE RECORDS
+    </div>
+
+</footer>
+
+
+
+<script>
+
+let currentPage = 1;
+
+const totalPages = 8;
+
+
+function changePage(direction) {
+
+    const oldPage = document.getElementById(
+        "page" + currentPage
+    );
+
+    oldPage.style.display = "none";
+
+
+    currentPage += direction;
+
+
+    const newPage = document.getElementById(
+        "page" + currentPage
+    );
+
+    newPage.style.display = "block";
+
+
+    updateNavigation();
+
+}
+
+
+function updateNavigation() {
+
+    const previousButton =
+        document.getElementById("previousButton");
+
+    const nextButton =
+        document.getElementById("nextButton");
+
+    const pageCounter =
+        document.getElementById("pageCounter");
+
+
+    previousButton.disabled =
+        currentPage === 1;
+
+
+    nextButton.disabled =
+        currentPage === totalPages;
+
+
+    pageCounter.textContent =
+        "PAGE " +
+        String(currentPage).padStart(2, "0") +
+        " / " +
+        String(totalPages).padStart(2, "0");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
