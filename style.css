@@ -1,0 +1,1274 @@
+/* =========================================================
+   ASHCOMBE ESTATE ARCHIVE
+   Vintage British Estate / Private Papers
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #29241d 0%,
+            #1d1a16 55%,
+            #141311 100%
+        );
+
+    color: #d9d0bd;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    line-height: 1.7;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    border-bottom: 1px solid #625541;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #191714,
+            #211e19
+        );
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* top archival strip */
+
+.header-strip {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 7%;
+
+    border-bottom: 1px solid #40392f;
+
+    color: #94866e;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* main header */
+
+.header-main {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 32px 7%;
+}
+
+
+.archive-mark {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #806f52;
+
+    color: #b8a582;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    letter-spacing: 2px;
+
+    position: relative;
+}
+
+
+.archive-mark::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 5px;
+
+    border: 1px solid #4f4639;
+}
+
+
+.title-block h1 {
+    margin: 0;
+
+    color: #e2d8c5;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+    letter-spacing: 0.5px;
+}
+
+
+.title-block p {
+    margin: 4px 0 0;
+
+    color: #91836c;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.main-nav {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 42px;
+
+    padding: 14px 20px;
+
+    border-top: 1px solid #332e27;
+
+    background: #181613;
+}
+
+
+.main-nav a {
+    color: #9c907b;
+
+    text-decoration: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1.8px;
+
+    transition: color 0.25s ease;
+}
+
+
+.main-nav a:hover {
+    color: #d2b986;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+main {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 70px 7% 100px;
+}
+
+
+.record-page {
+    width: 100%;
+}
+
+
+/* =========================================================
+   INTRO / ARCHIVE LANDING
+   ========================================================= */
+
+.archive-intro {
+    max-width: 780px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+
+.archive-intro .eyebrow {
+    margin-bottom: 12px;
+
+    color: #9a896c;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+.archive-intro h2 {
+    margin: 0 0 20px;
+
+    color: #e2d8c5;
+
+    font-size: 34px;
+
+    font-weight: normal;
+}
+
+
+.archive-intro p {
+    margin: 0 auto;
+
+    max-width: 680px;
+
+    color: #aaa08f;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-heading {
+    margin-bottom: 28px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #554b3d;
+
+    color: #c8b99e;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.section-heading::before {
+    content: "§ ";
+
+    color: #8f7955;
+}
+
+
+/* =========================================================
+   RECORD LIST
+   ========================================================= */
+
+.record-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    margin-bottom: 70px;
+}
+
+
+.record-entry {
+    display: grid;
+
+    grid-template-columns: 100px 1fr auto;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding: 25px 20px;
+
+    border-bottom: 1px solid #39342c;
+
+    transition:
+        background 0.25s ease,
+        padding 0.25s ease;
+}
+
+
+.record-entry:first-child {
+    border-top: 1px solid #39342c;
+}
+
+
+.record-entry:hover {
+    background: rgba(170, 140, 90, 0.055);
+
+    padding-left: 27px;
+}
+
+
+.record-year {
+    color: #87785f;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+.record-info h3 {
+    margin: 0 0 4px;
+
+    color: #d7cbb6;
+
+    font-size: 18px;
+
+    font-weight: normal;
+}
+
+
+.record-info p {
+    margin: 0;
+
+    color: #817868;
+
+    font-size: 12px;
+}
+
+
+.record-link {
+    color: #a08c6a;
+
+    text-decoration: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+
+.record-link:hover {
+    color: #d1b37c;
+}
+
+
+/* =========================================================
+   ARCHIVE NOTE
+   ========================================================= */
+
+.archive-note {
+    max-width: 850px;
+
+    margin: 50px auto;
+
+    padding: 25px 30px;
+
+    border-left: 2px solid #756143;
+
+    background: rgba(125, 98, 58, 0.06);
+
+    color: #8f8573;
+
+    font-size: 13px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 45px;
+
+    color: #93836b;
+
+    text-decoration: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.back-link:hover {
+    color: #c9aa76;
+}
+
+
+/* =========================================================
+   RECORD PAGE HEADER
+   ========================================================= */
+
+.record-header {
+    max-width: 900px;
+
+    margin: 0 auto 50px;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid #5a4e3d;
+}
+
+
+.record-reference {
+    margin-bottom: 12px;
+
+    color: #907b5c;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.record-title {
+    margin: 0;
+
+    color: #e0d5c0;
+
+    font-size: 34px;
+
+    font-weight: normal;
+}
+
+
+.record-subtitle {
+    margin: 8px 0 0;
+
+    color: #8f8472;
+
+    font-size: 14px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   RECORD METADATA
+   ========================================================= */
+
+.record-meta {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    max-width: 900px;
+
+    margin: 0 auto 50px;
+
+    border-top: 1px solid #40392f;
+
+    border-bottom: 1px solid #40392f;
+}
+
+
+.meta-item {
+    padding: 18px 20px;
+
+    border-right: 1px solid #40392f;
+}
+
+
+.meta-item:last-child {
+    border-right: none;
+}
+
+
+.meta-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #776a57;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+.meta-value {
+    color: #c3b8a5;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RECORD SECTIONS
+   ========================================================= */
+
+.record-section {
+    max-width: 900px;
+
+    margin: 0 auto 42px;
+}
+
+
+.record-section h3 {
+    margin: 0 0 15px;
+
+    color: #aa9878;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.record-section p {
+    margin: 0;
+
+    color: #b4aa99;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.record-status {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border: 1px solid #675a46;
+
+    color: #b29a6f;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ARCHIVAL INSTRUCTION
+   ========================================================= */
+
+.archival-note {
+    max-width: 850px;
+
+    margin: 50px auto;
+
+    padding: 25px 30px;
+
+    background:
+        rgba(117, 91, 55, 0.065);
+
+    border-left: 2px solid #89724f;
+
+    border-top: 1px solid rgba(125, 103, 71, 0.18);
+
+    border-bottom: 1px solid rgba(125, 103, 71, 0.18);
+
+    color: #c0b39d;
+}
+
+
+.archival-note strong {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #927d5c;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.archival-note p {
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    font-style: italic;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   RECORD FOOTER
+   ========================================================= */
+
+.record-footer {
+    max-width: 900px;
+
+    margin: 70px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #40392f;
+
+    color: #706756;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   DIARY VIEWER
+   ========================================================= */
+
+.diary-viewer {
+    max-width: 900px;
+
+    margin: 55px auto 80px;
+}
+
+
+/* =========================================================
+   DIARY PAGE
+   ========================================================= */
+
+.diary-page {
+    position: relative;
+
+    min-height: 650px;
+
+    padding: 75px 85px;
+
+    color: #3c3022;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #f8f0dc 0%,
+            #eee1c3 68%,
+            #d9c39b 100%
+        );
+
+    border: 1px solid #a58b63;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.45),
+        0 4px 10px rgba(0, 0, 0, 0.2),
+        inset 0 0 50px rgba(88, 63, 32, 0.12);
+
+    overflow: hidden;
+
+    animation: diaryAppear 0.35s ease;
+}
+
+
+.diary-page::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 18px;
+
+    border: 1px solid rgba(105, 80, 45, 0.3);
+
+    pointer-events: none;
+}
+
+
+.diary-page::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(90, 65, 35, 0.018),
+            rgba(90, 65, 35, 0.018) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+
+/* diary page number */
+
+.diary-page-number {
+    position: absolute;
+
+    top: 34px;
+    right: 48px;
+
+    z-index: 2;
+
+    color: #806f57;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* diary date */
+
+.diary-date {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    color: #75624a;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    font-style: italic;
+}
+
+
+/* diary heading */
+
+.diary-heading {
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0 0 38px;
+
+    text-align: center;
+
+    color: #33291e;
+
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+}
+
+
+.diary-heading::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+
+    margin: 18px auto 0;
+
+    border-bottom: 1px solid #a48d6b;
+}
+
+
+/* diary text */
+
+.diary-text {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 660px;
+
+    margin: 0 auto;
+
+    color: #403426;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+
+.diary-text p {
+    margin: 0 0 23px;
+}
+
+
+/* diary signature */
+
+.diary-signature {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 50px;
+
+    text-align: right;
+
+    color: #51412e;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   DIARY SUIT HIERARCHY
+   ========================================================= */
+
+.suit-order {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 430px;
+
+    margin: 38px auto;
+
+    padding: 20px 28px;
+
+    border-top: 1px solid #a18b69;
+
+    border-bottom: 1px solid #a18b69;
+
+    color: #403426;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+}
+
+
+.suit-order div {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 7px 12px;
+}
+
+
+/* =========================================================
+   DIARY ARCHIVAL INSTRUCTION
+   ========================================================= */
+
+.diary-page .archival-instruction {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+
+    margin: 45px auto 35px;
+
+    padding: 25px 30px;
+
+    background: rgba(120, 91, 52, 0.055);
+
+    border-left: 2px solid #806b4d;
+
+    border-top: 1px solid rgba(128, 107, 77, 0.25);
+
+    border-bottom: 1px solid rgba(128, 107, 77, 0.25);
+}
+
+
+.diary-page .archival-label {
+    margin-bottom: 14px;
+
+    color: #75624a;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.diary-page .archival-instruction p {
+    margin: 0;
+
+    color: #3f3326;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   DIARY NAVIGATION
+   ========================================================= */
+
+.diary-navigation {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding: 0 5px;
+}
+
+
+.diary-button {
+    padding: 12px 20px;
+
+    background: #211d18;
+
+    border: 1px solid #75634c;
+
+    color: #d9ccb6;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.diary-button:hover:not(:disabled) {
+    background: #332c23;
+
+    border-color: #a18b69;
+}
+
+
+.diary-button:disabled {
+    opacity: 0.3;
+
+    cursor: default;
+}
+
+
+.page-counter {
+    color: #918879;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 25px 7% 35px;
+
+    border-top: 1px solid #39342d;
+
+    color: #716858;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes diaryAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .header-strip {
+        padding: 9px 5%;
+
+        font-size: 7px;
+
+        gap: 10px;
+    }
+
+
+    .header-main {
+        padding: 25px 5%;
+    }
+
+
+    .archive-mark {
+        width: 48px;
+        height: 48px;
+
+        font-size: 15px;
+    }
+
+
+    .title-block h1 {
+        font-size: 22px;
+    }
+
+
+    .title-block p {
+        font-size: 11px;
+    }
+
+
+    .main-nav {
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        padding: 12px;
+    }
+
+
+    .main-nav a {
+        font-size: 8px;
+    }
+
+
+    main {
+        padding: 45px 5% 70px;
+    }
+
+
+    .archive-intro h2 {
+        font-size: 28px;
+    }
+
+
+    .record-entry {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+        padding: 22px 12px;
+    }
+
+
+    .record-entry:hover {
+        padding-left: 16px;
+    }
+
+
+    .record-meta {
+        grid-template-columns: 1fr;
+    }
+
+
+    .meta-item {
+        border-right: none;
+
+        border-bottom: 1px solid #40392f;
+    }
+
+
+    .meta-item:last-child {
+        border-bottom: none;
+    }
+
+
+    .record-title {
+        font-size: 28px;
+    }
+
+
+    .record-footer {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    /* diary */
+
+    .diary-viewer {
+        margin-top: 30px;
+    }
+
+
+    .diary-page {
+        min-height: 600px;
+
+        padding: 65px 35px;
+    }
+
+
+    .diary-page::before {
+        inset: 12px;
+    }
+
+
+    .diary-page-number {
+        top: 28px;
+
+        right: 30px;
+    }
+
+
+    .diary-heading {
+        font-size: 23px;
+    }
+
+
+    .diary-text {
+        font-size: 15px;
+
+        line-height: 1.9;
+    }
+
+
+    .diary-signature {
+        font-size: 22px;
+    }
+
+
+    .suit-order {
+        padding: 15px 12px;
+
+        font-size: 15px;
+    }
+
+
+    .diary-navigation {
+        gap: 10px;
+    }
+
+
+    .diary-button {
+        padding: 10px 12px;
+
+        font-size: 8px;
+    }
+
+
+    footer {
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding-left: 5%;
+
+        padding-right: 5%;
+    }
+
+}
